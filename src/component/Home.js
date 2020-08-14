@@ -38,10 +38,12 @@ class Home extends Component {
             });
         }
         window.addEventListener('beforeunload', this.update);// event to triger on window or browser close
+        window.addEventListener('popstate',this.onBackButtonEvent);// event to triger on window back button
     }
 
     componentWillUnmount() {
         window.removeEventListener('beforeunload', this.update);
+        window.removeEventListener('popstate',this.onBackButtonEvent);
     }
 
     // button1 onClick event
@@ -59,6 +61,11 @@ class Home extends Component {
 
     // event to execute on window or browser close
     update = e => {
+        if (this.state.btn1Onclick == true) { firebase.database().ref("button1").set(false) }
+        if (this.state.btn2Onclick == true) { firebase.database().ref("button2").set(false) }
+    }
+    // event for back button press
+    onBackButtonEvent= e => {
         if (this.state.btn1Onclick == true) { firebase.database().ref("button1").set(false) }
         if (this.state.btn2Onclick == true) { firebase.database().ref("button2").set(false) }
     }
