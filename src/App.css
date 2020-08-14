@@ -1,0 +1,86 @@
+*{font-family:Georgia;
+color: rgb(14, 110, 235);}
+
+#main{
+  background-image: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/08/Modern-Clean-Abstract-Shapes-Background-Yellow.jpg");
+  height:100vh;
+  width:100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Error{
+  color: red;
+  font-size: 13px;
+}
+
+#title{
+  padding-top: 100px;
+}
+h1{
+  font-weight: bold ;
+  color: rgb(5, 74, 163);;
+}
+.registerBtn{
+  border: none;
+  border-bottom: 1px solid #000000;
+  color: rgb(5, 74, 163); ;
+  background: transparent;
+  font-weight: bold;
+}
+.lable{
+  margin-top: 50px;
+}
+.lable2{
+  margin-top: 30px;
+}
+input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000000;
+  margin-top: 6px;
+  align-items: center;
+}
+
+.loginBtn{
+  background-color:rgb(5, 74, 163);
+    border: 1px solid #000000;
+    border-radius:10%;
+    padding: 6px;
+    color: cornsilk;
+    font-weight: bold;
+    margin-top: 30px ;
+}
+.div2{
+  margin-top: 5px;
+}
+#log{
+  background-color:rgb(85, 151, 236);
+  border: 4px solid rgb(70, 44, 5);
+  border-radius:100%;
+  padding: 15px;
+  color: white;
+  font-weight: bold;
+}
+#log{
+  background-color:rgb(85, 151, 236);
+  border: 5px solid rgb(248, 237, 220);
+  border-radius:50%;
+  padding: 15px;
+  color: white;
+  font-weight: bold;
+}
+.butn{
+  background-color:orange;
+  border: 5px solid rgb(122, 76, 6);
+  border-radius:20%;
+  padding: 15px;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 3%;
+}
+.butn:disabled {
+  background: #f7e6c4;
+}
