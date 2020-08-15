@@ -15,7 +15,8 @@ class Home extends Component {
     }
 
     logout = () => {
-       
+        firebase.database().ref("button2").set(false)
+        firebase.database().ref("button1").set(false)
         //if the the user had performed onClick event , than during logout changing the button to enabled state in DB
         if (this.state.btn1Onclick == true) { firebase.database().ref("button1").set(false) }
         if (this.state.btn2Onclick == true) { firebase.database().ref("button2").set(false) }
@@ -39,12 +40,22 @@ class Home extends Component {
             });
         }
         window.addEventListener('beforeunload', this.update);// event to triger on window or browser close
-        window.addEventListener('onpopstate',this.onBackButtonEvent);// event to triger on window back button
+        // window.addEventListener('onpopstate',this.onBackButtonEvent);// event to triger on window back button
+        
     }
+    componentDidUpdate(){
+
+        window.onpopstate  = (e) => {
+            if (this.state.btn1Onclick == true) { firebase.database().ref("button1").set(false) }
+            if (this.state.btn2Onclick == true) { firebase.database().ref("button2").set(false) }
+       }
+      
+          }
+
 
     componentWillUnmount() {
         window.removeEventListener('beforeunload', this.update);
-        window.removeEventListener('onpopstate',this.onBackButtonEvent);
+        // window.removeEventListener('onpopstate',this.onBackButtonEvent);
     }
 
     // button1 onClick event
@@ -66,10 +77,10 @@ class Home extends Component {
         if (this.state.btn2Onclick == true) { firebase.database().ref("button2").set(false) }
     }
     // event for back button press
-    onBackButtonEvent= e => {
-        if (this.state.btn1Onclick == true) { firebase.database().ref("button1").set(false) }
-        if (this.state.btn2Onclick == true) { firebase.database().ref("button2").set(false) }
-    }
+    // onBackButtonEvent= e => {
+    //     if (this.state.btn1Onclick == true) { firebase.database().ref("button1").set(false) }
+    //     if (this.state.btn2Onclick == true) { firebase.database().ref("button2").set(false) }
+    // }
 
     render() {
         return (
