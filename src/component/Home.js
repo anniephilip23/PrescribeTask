@@ -14,12 +14,10 @@ class Home extends Component {
         }
     }
 
+    // event to run during log out
     logout = () => {
         firebase.database().ref("button2").set(false)
         firebase.database().ref("button1").set(false)
-        //if the the user had performed onClick event , than during logout changing the button to enabled state in DB
-        if (this.state.btn1Onclick == true) { firebase.database().ref("button1").set(false) }
-        if (this.state.btn2Onclick == true) { firebase.database().ref("button2").set(false) }
         fire.auth().signOut();
     }
 
@@ -68,7 +66,7 @@ class Home extends Component {
         if (this.state.btn2Onclick == true) { firebase.database().ref("button2").set(false) }
     }
     // event for back button press in window or browser
-    onBackButtonEvent= e => {
+    onBackButtonEvent = e => {
         if (this.state.btn1Onclick == true) { firebase.database().ref("button1").set(false) }
         if (this.state.btn2Onclick == true) { firebase.database().ref("button2").set(false) }
     }
