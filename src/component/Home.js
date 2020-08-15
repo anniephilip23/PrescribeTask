@@ -40,22 +40,13 @@ class Home extends Component {
             });
         }
         window.addEventListener('beforeunload', this.update);// event to triger on window or browser close
-        // window.addEventListener('onpopstate',this.onBackButtonEvent);// event to triger on window back button
-        
+        window.addEventListener('onpopstate', this.onBackButtonEvent);// event to triger on window back button
+
     }
-    componentDidUpdate(){
-
-        window.onpopstate  = (e) => {
-            if (this.state.btn1Onclick == true) { firebase.database().ref("button1").set(false) }
-            if (this.state.btn2Onclick == true) { firebase.database().ref("button2").set(false) }
-       }
-      
-          }
-
 
     componentWillUnmount() {
         window.removeEventListener('beforeunload', this.update);
-        // window.removeEventListener('onpopstate',this.onBackButtonEvent);
+        window.removeEventListener('onpopstate', this.onBackButtonEvent);
     }
 
     // button1 onClick event
@@ -76,11 +67,11 @@ class Home extends Component {
         if (this.state.btn1Onclick == true) { firebase.database().ref("button1").set(false) }
         if (this.state.btn2Onclick == true) { firebase.database().ref("button2").set(false) }
     }
-    // event for back button press
-    // onBackButtonEvent= e => {
-    //     if (this.state.btn1Onclick == true) { firebase.database().ref("button1").set(false) }
-    //     if (this.state.btn2Onclick == true) { firebase.database().ref("button2").set(false) }
-    // }
+    // event for back button press in window or browser
+    onBackButtonEvent= e => {
+        if (this.state.btn1Onclick == true) { firebase.database().ref("button1").set(false) }
+        if (this.state.btn2Onclick == true) { firebase.database().ref("button2").set(false) }
+    }
 
     render() {
         return (
