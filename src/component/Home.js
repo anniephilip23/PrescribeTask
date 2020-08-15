@@ -15,6 +15,7 @@ class Home extends Component {
     }
 
     logout = () => {
+       
         //if the the user had performed onClick event , than during logout changing the button to enabled state in DB
         if (this.state.btn1Onclick == true) { firebase.database().ref("button1").set(false) }
         if (this.state.btn2Onclick == true) { firebase.database().ref("button2").set(false) }
@@ -38,12 +39,12 @@ class Home extends Component {
             });
         }
         window.addEventListener('beforeunload', this.update);// event to triger on window or browser close
-        window.addEventListener('popstate',this.onBackButtonEvent);// event to triger on window back button
+        window.addEventListener('onpopstate',this.onBackButtonEvent);// event to triger on window back button
     }
 
     componentWillUnmount() {
         window.removeEventListener('beforeunload', this.update);
-        window.removeEventListener('popstate',this.onBackButtonEvent);
+        window.removeEventListener('onpopstate',this.onBackButtonEvent);
     }
 
     // button1 onClick event
